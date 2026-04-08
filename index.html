@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener | Josh.Dev</title>
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="logo-container">
+            <i class="bx bx-link-alt"></i>
+            <h1>URL Shortener</h1>
+            <p>Developed by: <span>Josh.Dev</span></p>
+        </div>
+        <div class="input-container">
+            <label for="realUrl">Real URL Here:</label>
+            <input type="text" id="realUrl" placeholder="https://example.com" autocomplete="off">
+
+            <div class="buttons">
+                <button id="reload">Reload</button>
+                <button id="shorten">Shorten</button>
+            </div>
+
+            <label for="urlTextArea">Shorten URL Here:</label>
+            <textarea id="urlTextArea" rows="3" readonly></textarea>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
