@@ -9,11 +9,31 @@ function shortenUrl() {
 
     let shortenedUrl = document.getElementById("urlTextArea");
 
-    fetch(apiUrl).then(respone => respone.text()).then(data => {
+    fetch(apiUrl).then(response => {
+        if (!response.ok) {
+            throw new Error("Invalid URL or API error!");
+        }
+        return response.text();
+    }).then(data => {
+
+        if (!data.startsWith("http")) {
+            throw new Error("Invalid URL!");
+        }
+
+        Swal.fire({
+            title: "URL Shortened Success!",
+            text: `${data}`,
+            icon: "success"
+        });
         shortenedUrl.value = data;
+        
     }).catch(error => {
-        shortenedUrl.value = "Error : Unable to Shorten URL, Try Again."
-    })
+        Swal.fire({
+            title: "URL Shortened Failed!",
+            text: `${error.message}`,
+            icon: "warning"
+        });
+    });
 }
 
 reloadBtn.addEventListener("click", ()=>{
